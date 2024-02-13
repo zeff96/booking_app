@@ -15,3 +15,13 @@ export default function Page() {
     </form>
   );
 }
+
+function LoginButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <button type="submit" aria-disabled={pending}>
+      Login
+    </button>
+  );
+}
