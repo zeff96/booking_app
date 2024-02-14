@@ -1,3 +1,18 @@
 .navbar {
   width: 20rem;
+  height: 100%;
+  border-right: 1px solid #555;
+}
+
+.item {
+  padding-inline-start: 0;
+  list-style: none;
+  width: inherit;
+  padding: 0 2rem;
+}
+
+.list-item {
+  background-color: greenyellow;
+  margin-bottom: 1rem;
+  padding: 1rem;
 }
