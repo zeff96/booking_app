@@ -7,19 +7,29 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <ul className={styles.item}>
         <li className={styles["list-item"]}>
-          <Link href="/">Motorcircles</Link>
+          <Link className={styles["nav-link"]} href="/">
+            Models
+          </Link>
         </li>
         <li className={styles["list-item"]}>
-          <Link href="/">Reserve</Link>
+          <Link className={styles["nav-link"]} href="/">
+            Reserve
+          </Link>
         </li>
         <li className={styles["list-item"]}>
-          <Link href="/">Reservations</Link>
+          <Link className={styles["nav-link"]} href="/">
+            Reservations
+          </Link>
         </li>
         <li className={styles["list-item"]}>
-          <Link href="/">Add Motorcircle</Link>
+          <Link className={styles["nav-link"]} href="/">
+            Add Motorcircle
+          </Link>
         </li>
         <li className={styles["list-item"]}>
-          <Link href="/">Delete Motorcircle</Link>
+          <Link className={styles["nav-link"]} href="/">
+            Delete Motorcircle
+          </Link>
         </li>
       </ul>
     </nav>

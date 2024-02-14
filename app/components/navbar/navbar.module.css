@@ -1,7 +1,7 @@
 .navbar {
-  width: 20rem;
-  height: 100%;
-  border-right: 1px solid #555;
+  width: 30rem;
+  height: 100vh;
+  border-right: 1px solid #ccc;
 }
 
 .item {
@@ -12,7 +12,20 @@
 }
 
 .list-item {
-  background-color: greenyellow;
   margin-bottom: 1rem;
   padding: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #555;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.nav-link:active {
+  color: #fff;
+  background-color: greenyellow;
 }
