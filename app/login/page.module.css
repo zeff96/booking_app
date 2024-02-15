@@ -13,3 +13,12 @@
   border-radius: 1rem;
   margin-bottom: 1rem;
 }
+
+.btn {
+  background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  color: #333;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
