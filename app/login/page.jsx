@@ -9,8 +9,20 @@ export default function Login() {
 
   return (
     <form action={dispatch} className={styles.form}>
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Password" required />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required
+        className={styles["form-control"]}
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        required
+        className={styles["form-control"]}
+      />
       <div>{errorMessage && <p>{errorMessage}</p>}</div>
       <LoginButton />
     </form>

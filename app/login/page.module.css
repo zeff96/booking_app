@@ -1,8 +1,15 @@
 .form {
-  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 3rem;
+}
+
+.form-control {
+  padding: 1rem;
+  border: 1px solid #333;
+  outline: none;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
