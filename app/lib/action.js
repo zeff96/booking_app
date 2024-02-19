@@ -1,4 +1,6 @@
 "use server";
+import { signIn } from "@/auth/auth";
+
 export async function authenticate(formData) {
   try {
     await signIn("credentials", formData);
