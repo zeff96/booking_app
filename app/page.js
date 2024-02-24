@@ -1,20 +1,19 @@
-"use client";
+import { getServerSession } from "next-auth";
+import { options } from "./api/auth/[...nextauth]/options";
 
-import Login from "./login/page";
 import styles from "./page.module.css";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  const closeSideNav = () => {
-    const nav = document.getElementById("nav");
-    const main = document.getElementById("main");
+export default async function Home() {
+  const session = await getServerSession(options);
 
-    nav.style.width = "0";
-    main.style.marginLeft = "0";
-  };
-  return (
-    <main className={styles.main} id="main">
-      <Login />
-      <button onClick={closeSideNav}>close</button>
-    </main>
-  );
+  if (!session) {
+    redirect("/api/auth/signin");
+  } else {
+    return (
+      <main className={styles.main} id="main">
+        <button>logout</button>
+      </main>
+    );
+  }
 }
