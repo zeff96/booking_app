@@ -12,8 +12,8 @@ export const options = {
           placeholder: "Your password",
         },
       },
-      async authorize(credentials, req) {
-        let res = await fetch("http:localhost:3000/api/login", {
+      async authorize(credentials) {
+        let res = await fetch(`${process.env.NEXTAUTH_URL}/api/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
