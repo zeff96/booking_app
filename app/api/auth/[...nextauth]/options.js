@@ -13,12 +13,14 @@ export const options = {
         },
       },
       async authorize(credentials) {
-        let res = await fetch(`${process.env.NEXTAUTH_URL}/api/login`, {
+        let res = await fetch("http:localhost:3000/auth/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(credentials),
+          body: JSON.stringify({
+            user: { email: credentials.email, password: credentials.password },
+          }),
         });
 
         let user = await res.json();
@@ -31,4 +33,23 @@ export const options = {
       },
     }),
   ],
+  callbacks: {
+    async signIn({ user }) {
+      return user;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.name = user.name;
+        token.email = user.email;
+        token.accessToken = user.token;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      session.accessToken = token.accessToken;
+      session.name = token.name;
+      session.email = token.email;
+      return session;
+    },
+  },
 };
