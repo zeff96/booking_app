@@ -1,32 +1,18 @@
 import Credentials from "next-auth/providers/credentials";
+import { getUser } from "../../../../lib/user/getUser";
 
 export const options = {
   providers: [
     Credentials({
       name: "credentials",
       credentials: {
-        email: { label: "Email", type: "email", placeholder: "Enter email" },
-        password: {
-          label: "Password",
-          type: "password",
-          placeholder: "Your password",
-        },
+        email: {},
+        password: {},
       },
       async authorize(credentials) {
-        let res = await fetch("http:localhost:3000/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            user: { email: credentials.email, password: credentials.password },
-          }),
-        });
+        let user = await getUser(credentials);
 
-        let data = await res.json();
-        let user = data.user;
-
-        if (res.ok) {
+        if (user) {
           return user;
         } else {
           return null;
