@@ -13,6 +13,7 @@ export const options = {
         let user = await getUser(credentials);
 
         if (user) {
+          console.log(user);
           return user;
         } else {
           return null;
@@ -20,4 +21,16 @@ export const options = {
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        (token.sub = user.user.id),
+          (token.name = user.user.username),
+          (token.email = user.user.email),
+          (token.accessToken = user.token);
+      }
+
+      return token;
+    },
+  },
 };
