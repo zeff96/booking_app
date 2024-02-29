@@ -32,5 +32,9 @@ export const options = {
 
       return token;
     },
+    async session({ session, token }) {
+      session.user = token;
+      return session;
+    },
   },
 };
