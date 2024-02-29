@@ -1,8 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./navbar.module.css";
+import { LogoutButton } from "../logout/logout";
+import { getServerSession } from "next-auth";
 
 const Navbar = () => {
+  const session = getServerSession();
+
   return (
     <nav className={styles.navbar} id="nav">
       <ul className={styles.item}>
@@ -32,6 +36,7 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
+      {session && <LogoutButton />}
     </nav>
   );
 };
