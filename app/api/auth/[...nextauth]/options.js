@@ -23,9 +23,10 @@ export const options = {
           }),
         });
 
-        let user = await res.json();
+        let data = await res.json();
+        let user = data.user;
 
-        if (res.ok && user) {
+        if (res.ok) {
           return user;
         } else {
           return null;
@@ -33,23 +34,4 @@ export const options = {
       },
     }),
   ],
-  callbacks: {
-    async signIn({ user }) {
-      return user;
-    },
-    async jwt({ token, user }) {
-      if (user) {
-        token.name = user.name;
-        token.email = user.email;
-        token.accessToken = user.token;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      session.accessToken = token.accessToken;
-      session.name = token.name;
-      session.email = token.email;
-      return session;
-    },
-  },
 };
