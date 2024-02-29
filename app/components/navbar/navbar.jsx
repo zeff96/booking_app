@@ -3,9 +3,10 @@ import Link from "next/link";
 import styles from "./navbar.module.css";
 import { LogoutButton } from "../logout/logout";
 import { getServerSession } from "next-auth";
+import { options } from "../../api/auth/[...nextauth]/options";
 
-const Navbar = () => {
-  const session = getServerSession();
+const Navbar = async () => {
+  const session = await getServerSession(options);
 
   return (
     <nav className={styles.navbar} id="nav">

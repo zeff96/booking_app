@@ -13,7 +13,6 @@ export const options = {
         let user = await getUser(credentials);
 
         if (user) {
-          console.log(user);
           return user;
         } else {
           return null;
