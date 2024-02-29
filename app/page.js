@@ -1,21 +1,13 @@
-import { getServerSession } from "next-auth";
-import { options } from "./api/auth/[...nextauth]/options";
-
 import styles from "./page.module.css";
-import { redirect } from "next/navigation";
-import { signOut } from "next-auth/react";
+import LoginPage from "./login/login";
+import { getServerSession } from "next-auth";
 
 export default async function Home() {
-  const session = await getServerSession(options);
-  console.log(session);
+  const session = await getServerSession();
 
-  if (!session) {
-    redirect("/api/auth/signin");
-  } else {
-    return (
-      <main className={styles.main} id="main">
-        <p>Greetings{session.user.name}</p>
-      </main>
-    );
-  }
+  return (
+    <main className={styles.main} id="main">
+      <LoginPage />
+    </main>
+  );
 }
