@@ -31,7 +31,7 @@ export default function LoginPage() {
         required
         className={styles["form-control"]}
       />
-      <input type="submit" value="Login" />
+      <input type="submit" value="Login" className={styles.btn} />
     </form>
   );
 }
