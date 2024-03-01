@@ -1,14 +1,21 @@
 .form {
-  width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #555;
+  border-radius: 1rem;
+  padding: 5rem;
 }
 
 .form-control {
-  width: 30%;
   padding: 1.5rem 2rem;
   margin-bottom: 1rem;
   border-radius: 1rem;
@@ -18,7 +25,6 @@
 }
 
 .btn {
-  width: 10%;
   background-color: #008cba;
   color: #fff;
   padding: 1rem;
@@ -26,10 +32,24 @@
   border-radius: 1rem;
   border: none;
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .btn:hover {
   border: 1px solid #008cba;
   color: #008cba;
   background-color: #fff;
+}
+
+.signup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.signup-link {
+  text-decoration: none;
+  color: #008cba;
+  font-size: 1.5rem;
 }
