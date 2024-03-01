@@ -10,10 +10,6 @@ const items = [
     path: "/reserve",
   },
   {
-    name: "reserve",
-    path: "/reserve",
-  },
-  {
     name: "reservations",
     path: "/reservations",
   },
