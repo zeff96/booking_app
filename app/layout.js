@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        {children}
+        <main className="main">{children}</main>
       </body>
     </html>
   );
