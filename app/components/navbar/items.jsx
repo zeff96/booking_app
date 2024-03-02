@@ -3,23 +3,23 @@ import Link from "next/link";
 const items = [
   {
     name: "model",
-    path: "/",
+    path: "/motorcircles",
   },
   {
     name: "reserve",
-    path: "/reserve",
+    path: "/motorcircles/reserve",
   },
   {
     name: "reservations",
-    path: "/reservations",
+    path: "/motorcircles/reservations",
   },
   {
     name: "add motorcircle",
-    path: "/add",
+    path: "/motorcircles/addMotorcircle",
   },
   {
     name: "delete motorcircle",
-    path: "/delete",
+    path: "/motorcircles/deleteMotorcircle",
   },
 ];
 
