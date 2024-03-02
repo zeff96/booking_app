@@ -3,8 +3,11 @@
 import { signIn } from "next-auth/react";
 import styles from "./login.module.css";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  let router = useRouter();
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -15,6 +18,8 @@ export default function LoginPage() {
       password: formData.get("password"),
       redirect: false,
     });
+
+    router.push("/motorcircles");
   }
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
