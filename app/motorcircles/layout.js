@@ -1,9 +1,11 @@
 import Navbar from "../components/navbar/navbar";
+import styles from "./page.module.css";
+
 export default function MotorcircleLayout({ children }) {
   return (
-    <section>
+    <section className={styles.section}>
       <Navbar />
-      {children}
+      <main className={styles.main}>{children}</main>
     </section>
   );
 }
