@@ -1,7 +1,18 @@
 import React from "react";
+import { useFormState, useFormStatus } from "react-dom";
 import styles from "./addform.module.css";
 
-const AddMotorcircle = () => {
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <button type="submit" className={styles.btn} aria-disabled={pending}>
+      {pending ? "Submitting..." : "Submit"}
+    </button>
+  );
+}
+
+const Form = () => {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles["wrapper-title"]}>Add Motorcircle</h2>
@@ -51,13 +62,3 @@ const AddMotorcircle = () => {
     </div>
   );
 };
-
-function SubmitButton() {
-  return (
-    <button type="submit" className={styles.btn}>
-      Create
-    </button>
-  );
-}
-
-export default AddMotorcircle;
