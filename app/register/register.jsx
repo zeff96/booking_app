@@ -1,3 +1,5 @@
+import styles from "./register.module.css";
+
 export default function RegisterPage() {
   return (
     <form className={styles.form}>
@@ -33,7 +35,7 @@ export default function RegisterPage() {
         <input type="submit" value="Login" className={styles.btn} />
         <hr />
         <div className={styles["login-wrapper"]}>
-          <Link href="" className={styles["signup-link"]}>
+          <Link href="" className={styles["login-link"]}>
             Registered? Click to login
           </Link>
         </div>
