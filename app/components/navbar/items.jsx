@@ -1,4 +1,5 @@
 import Link from "next/link";
+import styles from "./navbar.module.css";
 
 const items = [
   {
@@ -25,10 +26,12 @@ const items = [
 
 export function SideItems() {
   let listItem = items.map((item) => (
-    <li key={item.name}>
-      <Link href={item.path}>{item.name}</Link>
+    <li key={item.name} className={styles["list-item"]}>
+      <Link href={item.path} className={styles["nav-link"]}>
+        {item.name}
+      </Link>
     </li>
   ));
 
-  return <ul>{listItem}</ul>;
+  return <ul className={styles.list}>{listItem}</ul>;
 }
