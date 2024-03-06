@@ -33,5 +33,5 @@ export function SideItems() {
     </li>
   ));
 
-  return <ul className={styles.list}>{listItem}</ul>;
+  return <ul className={styles.item}>{listItem}</ul>;
 }
