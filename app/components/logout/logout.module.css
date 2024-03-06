@@ -1,4 +1,6 @@
 .btn {
+  position: absolute;
+  bottom: 5rem;
   background-color: #fff;
   color: #111;
   border: 1px solid #111;
@@ -6,4 +8,11 @@
   padding: 1rem 1.5rem;
   outline: none;
   cursor: pointer;
+  transition: background-color, color, border, 0.4s;
+}
+
+.btn:hover {
+  background-color: #111;
+  color: #fff;
+  border: #fff;
 }
