@@ -1,0 +1,9 @@
+.btn {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: #888;
+  cursor: pointer;
+}
