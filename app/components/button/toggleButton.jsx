@@ -17,12 +17,10 @@ const ToggleButton = () => {
 
   return (
     <div>
-      {!isHover && (
-        <TbMinusVertical
-          className={styles.btn}
-          onPointerEnter={handleMouseOver}
-        />
-      )}
+      <TbMinusVertical
+        className={styles.btn}
+        onPointerEnter={handleMouseOver}
+      />
       {isHover && (
         <PiCaretLeftBold
           className={styles.btn}
