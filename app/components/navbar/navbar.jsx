@@ -4,6 +4,7 @@ import { LogoutButton } from "../logout/logout";
 import { getServerSession } from "next-auth";
 import { options } from "../../api/auth/[...nextauth]/options";
 import { SideItems } from "./items";
+import ToggleButton from "../components/button/toggleButton";
 
 const Navbar = async () => {
   const session = await getServerSession(options);
@@ -17,6 +18,7 @@ const Navbar = async () => {
       />
       <SideItems />
       {session && <LogoutButton />}
+      <ToggleButton />
     </nav>
   );
 };
