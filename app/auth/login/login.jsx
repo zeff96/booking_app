@@ -1,27 +1,21 @@
 "use client";
-
-import { signIn } from "next-auth/react";
+import { useFormStatus, useFormState } from "react-dom";
+import { authenticate } from "../../../lib/action";
 import styles from "./login.module.css";
-import { useRouter } from "next/navigation";
+
+const LoginButton = () => {
+  const { pending } = useFormStatus();
+  return (
+    <button type="submit" aria-disabled={pending} className={styles.btn}>
+      Login
+    </button>
+  );
+};
 
 export default function LoginPage() {
-  let router = useRouter();
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-
-    let formData = new FormData(event.currentTarget);
-
-    await signIn("credentials", {
-      email: formData.get("email"),
-      password: formData.get("password"),
-      redirect: false,
-    });
-
-    router.push("/motorcircles");
-  }
+  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
+    <form className={styles.form} action={dispatch}>
       <div className={styles["form-wrapper"]}>
         <input
           type="email"
@@ -37,7 +31,8 @@ export default function LoginPage() {
           required
           className={styles["form-control"]}
         />
-        <input type="submit" value="Login" className={styles.btn} />
+        <div>{errorMessage && <p>{errorMessage}</p>}</div>
+        <LoginButton />
       </div>
     </form>
   );
