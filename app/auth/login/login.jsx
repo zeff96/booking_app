@@ -31,7 +31,11 @@ export default function LoginPage() {
           required
           className={styles["form-control"]}
         />
-        <div>{errorMessage && <p>{errorMessage}</p>}</div>
+        <div>
+          {errorMessage && (
+            <p className={styles["error-message"]}>{errorMessage}</p>
+          )}
+        </div>
         <LoginButton />
       </div>
     </form>
