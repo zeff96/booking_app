@@ -1,13 +1,11 @@
-import React from "react";
+import { cookies } from "next/headers";
 import styles from "./navbar.module.css";
 import { LogoutButton } from "../logout/logout";
-import { getServerSession } from "next-auth";
-import { options } from "../../api/auth/[...nextauth]/options";
 import { SideItems } from "./items";
 import ToggleButton from "../button/toggleButton";
 
 const Navbar = async () => {
-  const session = await getServerSession(options);
+  const token = cookies().get("token");
 
   return (
     <nav className={styles.navbar} id="nav">
@@ -17,7 +15,7 @@ const Navbar = async () => {
         style={{ width: "100px", height: "50px" }}
       />
       <SideItems />
-      {session && <LogoutButton />}
+      {token && <LogoutButton />}
       <ToggleButton />
     </nav>
   );
