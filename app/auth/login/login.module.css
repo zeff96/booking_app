@@ -41,3 +41,9 @@
   color: #008cba;
   font-size: 1.5rem;
 }
+
+.error-message {
+  color: #f44336;
+  font-size: 1.6rem;
+  text-wrap: wrap;
+}
