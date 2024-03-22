@@ -2,8 +2,9 @@ import Image from "next/image";
 import { getMotorcircles } from "../../lib/motorcircles/getMotorcircles";
 import styles from "./page.module.css";
 
-export default function MotorCircles() {
-  let listMotorcircles = motorcircles().map((motor) => (
+export default async function MotorCircles() {
+  const motorcircles = await getMotorcircles();
+  let listMotorcircles = motorcircles.map((motor) => (
     <li key={motor.id} className={styles["list-item"]}>
       <h2>{motor.name}</h2>
       <Image
