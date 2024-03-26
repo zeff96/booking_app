@@ -1,11 +1,11 @@
 export const middleware = (request) => {
-  const token = request.cookies.get("token")?.value;
+  const currentUser = request.cookies.get("token")?.value;
 
-  if (token && !request.nextUrl.pathname.startsWith("/motorcircles")) {
+  if (currentUser && !request.nextUrl.pathname.startsWith("/motorcircles")) {
     return Response.redirect(new URL("/motorcircles", request.url));
   }
 
-  if (!token && !request.nextUrl.pathname.startsWith("/")) {
+  if (!currentUser && !request.nextUrl.pathname.startsWith("/")) {
     return Response.redirect(new URL("/", request.url));
   }
 };
