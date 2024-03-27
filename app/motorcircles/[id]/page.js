@@ -13,6 +13,7 @@ const page = async ({ params }) => {
         alt={motorcircle.name}
         width={500}
         height={500}
+        style={{ objectFit: "cover", borderRadius: "1rem" }}
       />
       <div>
         <h2>{motorcircle.name}</h2>
