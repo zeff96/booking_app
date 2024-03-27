@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  gap: 2rem;
+}
+
+.finance-info {
+  font-size: 1.6rem;
+}
