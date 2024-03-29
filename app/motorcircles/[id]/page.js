@@ -2,6 +2,7 @@ import React from "react";
 import { getMotorcircleById } from "../../../lib/motorcircles/getMotorcircles";
 import styles from "./motorid.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const page = async ({ params }) => {
   const { id } = params;
@@ -29,6 +30,7 @@ const page = async ({ params }) => {
         <p className={styles["finance-info"]}>
           Duration: {motorcircle.duration}
         </p>
+        <Link href={`/motorcircles/${id}/AddReservation`}>Add Reservation</Link>
       </div>
     </div>
   );
