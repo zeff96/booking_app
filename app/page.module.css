@@ -27,8 +27,7 @@
   padding: 1rem;
   border-radius: 1rem;
   color: #fff;
-}
-
-.modal {
-  display: none;
+  text-align: center;
+  font-size: 1.6rem;
+  text-decoration: none;
 }
