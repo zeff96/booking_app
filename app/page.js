@@ -8,9 +8,11 @@ export default async function Home() {
       <div className={styles["main-wrapper"]}>
         <LoginPage />
         <hr />
-        <Link href="/register" className={styles["signup-link"]}>
-          Not registered? Click to signup
-        </Link>
+        <div className={styles["signup-wrapper"]}>
+          <Link href="/register" className={styles["signup-link"]}>
+            Not registered? Click to signup
+          </Link>
+        </div>
       </div>
     </main>
   );
