@@ -3,6 +3,10 @@ import { useFormStatus, useFormState } from "react-dom";
 import { authenticate } from "../../../lib/action";
 import styles from "./login.module.css";
 
+const initialState = {
+  message: "",
+};
+
 const LoginButton = () => {
   const { pending } = useFormStatus();
   return (
@@ -13,7 +17,7 @@ const LoginButton = () => {
 };
 
 export default function LoginPage() {
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+  const [state, dispatch] = useFormState(authenticate, initialState);
   return (
     <form className={styles.form} action={dispatch}>
       <div className={styles["form-wrapper"]}>
@@ -31,12 +35,8 @@ export default function LoginPage() {
           required
           className={styles["form-control"]}
         />
-        <div>
-          {errorMessage && (
-            <p className={styles["error-message"]}>{errorMessage}</p>
-          )}
-        </div>
         <LoginButton />
+        <p className={styles["error-message"]}>{state?.message}</p>
       </div>
     </form>
   );
