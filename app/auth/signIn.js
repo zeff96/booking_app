@@ -19,8 +19,11 @@ const authenticateUser = async (userObj) => {
     });
 
     const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.error);
+    }
     return data;
   } catch (error) {
-    throw error;
+    return error.message;
   }
 };
