@@ -9,7 +9,7 @@ export default async function Home() {
         <LoginPage />
         <hr />
         <div className={styles["signup-wrapper"]}>
-          <Link href="/register" className={styles["signup-link"]}>
+          <Link href="/auth/registration" className={styles["signup-link"]}>
             Not registered? Click to signup
           </Link>
         </div>
