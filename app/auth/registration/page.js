@@ -52,7 +52,9 @@ export default function RegisterPage() {
           className={styles["form-control"]}
         />
         <SubmitButton />
-        <p>{state?.message}</p>
+        <p aria-live="polite" role="status" className={styles["error-message"]}>
+          {state?.message}
+        </p>
         <hr />
         <div className={styles["login-wrapper"]}>
           <Link href="/" className={styles["login-link"]}>
