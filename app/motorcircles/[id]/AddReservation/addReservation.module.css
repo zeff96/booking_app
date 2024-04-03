@@ -11,3 +11,8 @@
   color: #fff;
   font-size: 1.6rem;
 }
+
+.vespa-info {
+  max-width: 70%;
+  text-align: center;
+}

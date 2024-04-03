@@ -5,7 +5,7 @@ const AddReserveForm = () => {
   return (
     <section className={styles.section}>
       <h2>BOOK A VESPA TEST-RIDE</h2>
-      <p>
+      <p className={styles["vespa-info"]}>
         There are different versions of the Vespa.Today five series are in
         production: the classic manual transmission PX and the modern CVT
         transmission S, LX, GT, and GTS. We have showrooms all over the globe
