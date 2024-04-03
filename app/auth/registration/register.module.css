@@ -54,3 +54,8 @@
   color: #008cba;
   font-size: 1.5rem;
 }
+
+.error-message {
+  font-size: 1.6rem;
+  color: #f44336;
+}
