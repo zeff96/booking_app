@@ -9,11 +9,6 @@
   position: relative;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
 .wrapper-title {
   font-size: 2rem;
   text-align: center;
@@ -22,6 +17,9 @@
 }
 
 .list {
+  height: 100vh;
+  display: flex;
+  align-items: center;
   padding-inline-start: 0;
   list-style: none;
 }
