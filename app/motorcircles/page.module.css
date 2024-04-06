@@ -22,8 +22,14 @@
   align-items: center;
   padding-inline-start: 0;
   list-style: none;
+  padding: 2rem;
 }
 
 .list-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   font-size: 1.6rem;
 }
