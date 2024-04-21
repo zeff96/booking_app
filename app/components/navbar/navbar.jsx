@@ -5,7 +5,7 @@ import { SideItems } from "./items";
 import ToggleButton from "../button/toggleButton";
 
 const Navbar = async () => {
-  const token = cookies().get("token");
+  const token = cookies().get("token")?.value;
 
   return (
     <nav className={styles.navbar} id="nav">
