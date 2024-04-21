@@ -57,7 +57,7 @@ export default function RegisterPage() {
         </p>
         <hr />
         <div className={styles["login-wrapper"]}>
-          <Link href="/" className={styles["login-link"]}>
+          <Link href="/auth/login" className={styles["login-link"]}>
             Registered? Click to login
           </Link>
         </div>
