@@ -5,29 +5,5 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.main-wrapper {
-  margin: 0 auto;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-}
-
-.signup-wrapper {
-  margin-top: 1rem;
-  display: flex;
-}
-
-.signup-link {
-  flex: 1;
-  cursor: pointer;
-  background-color: #04aa6d;
-  border: none;
-  padding: 1rem;
-  border-radius: 1rem;
-  color: #fff;
-  text-align: center;
-  font-size: 1.6rem;
-  text-decoration: none;
+  background-color: #333;
 }
