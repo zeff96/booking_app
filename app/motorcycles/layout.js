@@ -14,7 +14,7 @@ export default function MotorcycleLayout({ children }) {
           <Image src="/icon.jpg" alt="navbar icon" width={150} height={150} />
         </Link>
         <Menu />
-        <div className="justify-end">
+        <div className="mt-auto flex justify-center lg:justify-start">
           <LogoutButton />
         </div>
         <form action="" method="post"></form>
