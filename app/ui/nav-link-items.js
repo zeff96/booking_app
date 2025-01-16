@@ -8,7 +8,6 @@ import {
   ListBulletIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
@@ -55,7 +54,7 @@ const Menu = () => {
               "flex items-center justify-center lg:justify-start gap-2 p-4 text-sm",
               {
                 "bg-lime-500 text-white": pathname === item.href,
-              }
+              },
             )}
           >
             <LinkIcon className="w-6" />
