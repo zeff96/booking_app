@@ -51,9 +51,9 @@ const Menu = () => {
             href={item.href}
             key={item.name}
             className={clsx(
-              "flex items-center justify-center lg:justify-start gap-2 p-4 text-sm",
+              "flex items-center justify-center lg:justify-start gap-2 p-4 text-sm font-semibold",
               {
-                "bg-lime-500 text-white": pathname === item.href,
+                "bg-lime-400 text-white": pathname === item.href,
               },
             )}
           >
