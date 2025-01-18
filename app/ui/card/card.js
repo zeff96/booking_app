@@ -1,54 +1,50 @@
 import { cssMerge } from "@/app/lib/utils";
 
-const Card = ({ className, ref, ...props }) => {
+const Card = ({ className, children, ...props }) => {
   return (
-    <div
-      className={cssMerge("border rounded-xl", className)}
-      ref={ref}
-      {...props}
-    />
+    <div className={cssMerge("border rounded-xl", className)} {...props}>
+      {children}
+    </div>
   );
 };
 
-const CardHeader = ({ className, ref, ...props }) => {
+const CardHeader = ({ className, children, ...props }) => {
   return (
-    <div
-      className={cssMerge("flex flex-col p-6 pt-0", className)}
-      ref={ref}
-      {...props}
-    />
+    <div className={cssMerge("flex flex-col p-6 pt-0", className)} {...props}>
+      {children}
+    </div>
   );
 };
 
-const CardTitle = ({ className, ref, ...props }) => {
+const CardTitle = ({ className, children, ...props }) => {
   return (
-    <div
-      className={cssMerge("text-2xl font-semibold", className)}
-      ref={ref}
-      {...props}
-    />
+    <div className={cssMerge("text-2xl font-semibold", className)} {...props}>
+      {children}
+    </div>
   );
 };
 
-const CardDescription = ({ className, ref, ...props }) => {
+const CardDescription = ({ className, children, ...props }) => {
   return (
-    <div className={cssMerge("text-sm", className)} ref={ref} {...props} />
+    <div className={cssMerge("text-sm", className)} {...props}>
+      {children}
+    </div>
   );
 };
 
-const CardContent = ({ className, ref, ...props }) => {
+const CardContent = ({ className, children, ...props }) => {
   return (
-    <div className={cssMerge("p-6 pt-0", className)} ref={ref} {...props} />
+    <div className={cssMerge("p-6 pt-0", className)} {...props}>
+      {children}
+    </div>
   );
 };
 
-const CardFooter = ({ className, ref, ...props }) => {
+const CardFooter = ({ className, children, ...props }) => {
   return (
-    <div
-      className={cssMerge("flex items-center", className)}
-      ref={ref}
-      {...props}
-    />
+    <div className={cssMerge("flex items-center", className)} {...props}>
+      {children}
+    </div>
   );
 };
 
