@@ -50,6 +50,9 @@ export default async function Page({ params }) {
             </li>
           </ul>
         </div>
+        <div>
+          <span className="font-semibold">5.9% APR</span> Representative
+        </div>
       </div>
     </div>
   );

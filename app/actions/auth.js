@@ -40,7 +40,7 @@ export const signup = async (state, formData) => {
 
   const data = await response.json();
 
-  const { user } = data;
+  // const { user } = data;
 
   if (data.error) {
     return {
@@ -48,8 +48,8 @@ export const signup = async (state, formData) => {
     };
   }
 
-  await createSession(user.id);
-  redirect("/motorcycles");
+  // await createSession(user.id);
+  // redirect("/motorcycles");
 };
 
 export const signin = async (state, formData) => {
@@ -79,10 +79,11 @@ export const signin = async (state, formData) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(userData),
+    credentials: "include",
   });
 
   const data = await response.json();
-  const { user } = data;
+  // const { user } = data;
 
   if (data.error) {
     return {
@@ -90,8 +91,8 @@ export const signin = async (state, formData) => {
     };
   }
 
-  createSession(user.id);
-  redirect("/motorcycles");
+  // createSession(user.id);
+  // redirect("/motorcycles");
 };
 
 export const logout = async () => {
