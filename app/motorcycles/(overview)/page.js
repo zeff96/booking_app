@@ -9,7 +9,9 @@ export default async function Page() {
           Please select a Vespa Model
         </span>
       </div>
-      <Motorcycles />
+      <div className="px-12">
+        <Motorcycles />
+      </div>
     </main>
   );
 }
