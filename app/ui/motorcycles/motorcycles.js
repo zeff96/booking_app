@@ -22,7 +22,7 @@ import Link from "next/link";
 const imageStyle = {
   borderRadius: "50%",
   border: "1px solid #ccc",
-  objectFit: "contain",
+  objectFit: "cover",
 };
 
 export async function Motorcycles() {
