@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { lusitana } from "@/app/ui/fonts";
+import vespa1 from "@/app/images/vespa1.avif";
 
 export default function Home() {
   return (
@@ -20,12 +21,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          <Image
-            src="/vespa.jpg"
-            alt="desktop image"
-            width={500}
-            height={500}
-          />
+          <Image src={vespa1} alt="desktop image" width={500} height={500} />
         </div>
       </div>
     </main>
