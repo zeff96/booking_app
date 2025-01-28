@@ -53,7 +53,7 @@ const Menu = () => {
             className={clsx(
               "flex items-center justify-center lg:justify-start gap-2 p-4 text-sm font-semibold",
               {
-                "bg-lime-400 text-white": pathname.startsWith(item.href),
+                "bg-lime-400 text-white": pathname === item.href,
               },
             )}
           >
