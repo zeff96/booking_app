@@ -1,6 +1,7 @@
 import { motorcycles } from "@/app/lib/data";
 import { formatCurrency } from "@/app/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 
 export async function generateStaticParams() {
   return motorcycles.map((item) => ({ id: item.id }));
@@ -52,6 +53,9 @@ export default async function Page({ params }) {
         </div>
         <div>
           <span className="font-semibold">5.9% APR</span> Representative
+        </div>
+        <div>
+          <Link href={`/motorcycles/reserve?motorcycleId=${id}`}>Reserve</Link>
         </div>
       </div>
     </div>
