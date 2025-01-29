@@ -29,7 +29,7 @@ const items = [
   },
   {
     name: "ADD MOTORCYCLE",
-    href: "/motorcycles/add-motorcycle",
+    href: "/motorcycles/addmotorcycle",
     icon: PlusCircleIcon,
   },
   {
@@ -54,7 +54,7 @@ const Menu = () => {
               "flex items-center justify-center lg:justify-start gap-2 p-4 text-sm font-semibold",
               {
                 "bg-lime-400 text-white": pathname === item.href,
-              },
+              }
             )}
           >
             <LinkIcon className="w-6" />
