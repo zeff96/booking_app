@@ -1,6 +1,6 @@
 "use client";
 
-import { ReserveForm } from "@/app/ui/reserve/reserve-form";
+import { ReserveForm } from "@/app/ui/motorcycles/reserve/reserve-form";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 
