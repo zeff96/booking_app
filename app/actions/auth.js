@@ -40,16 +40,50 @@ export const signup = async (state, formData) => {
 
   const data = await response.json();
 
-  // const { user } = data;
-
-  if (data.error) {
+  if (response.ok) {
+    return {
+      message: data.message,
+    };
+  } else {
     return {
       message: data.error,
     };
   }
+};
 
-  // await createSession(user.id);
-  // redirect("/motorcycles");
+export const verifyAccount = async (state, formData) => {
+  const token = formData.get("token");
+  const userParams = {
+    user: {
+      token,
+    },
+  };
+
+  try {
+    const response = await fetch(
+      "http://127.0.0.1:3000/auth/account_confirmation",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userParams),
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return {
+        message: data.error,
+      };
+    }
+  } catch (error) {
+    return {
+      message: "An unexpected error occurred. Please try again!",
+    };
+  }
+  redirect("/auth/login");
 };
 
 export const signin = async (state, formData) => {
@@ -73,29 +107,39 @@ export const signin = async (state, formData) => {
     },
   };
 
-  const response = await fetch("http://127.0.0.1:3000/auth/sign_in", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userData),
-    credentials: "include",
-  });
+  try {
+    const response = await fetch("http://127.0.0.1:3000/auth/sign_in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+      credentials: "include",
+    });
 
-  const data = await response.json();
-  // const { user } = data;
+    const data = await response.json();
 
-  if (data.error) {
+    if (response.ok) {
+      const {
+        token,
+        user: { id, role },
+      } = data;
+      await createSession(id, token, role);
+    } else {
+      return {
+        message: data.error,
+      };
+    }
+  } catch (error) {
     return {
-      message: data.error,
+      message: "An unexpected error occurred. Please try again!",
     };
   }
 
-  // createSession(user.id);
-  // redirect("/motorcycles");
+  redirect("/motorcycles");
 };
 
 export const logout = async () => {
   deleteSession();
-  redirect("/login");
+  redirect("/auth/login");
 };
