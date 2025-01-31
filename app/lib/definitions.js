@@ -22,13 +22,7 @@ export const SignupFormSchema = z.object({
     .trim(),
 });
 
-export const SigninFormSchema = z.object({
-  email: z.string().email({ message: "Please enter a valid email" }),
-  password: z
-    .string()
-    .min(8, { message: "Be atleat 8 characters long" })
-    .regex(/[a-zA-Z]/, { message: "Contain atleast one letter." })
-    .regex(/[0-9]/, { message: "Contain altleast one number." })
-    .regex(/[^a-zA-Z0-9]/, { message: "Contain atleat one special character" })
-    .trim(),
+export const SigninFormSchema = SignupFormSchema.pick({
+  email: true,
+  password: true,
 });
