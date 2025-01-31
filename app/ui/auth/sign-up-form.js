@@ -11,7 +11,7 @@ const SignupForm = () => {
       action={action}
       className="lg:w-1/4 border border-gray-300 rounded-md shadow-md p-3 bg-gray-200"
     >
-      <h2 className="text-start mb-3">Register</h2>
+      <h2 className="mb-3 text-center">Register</h2>
       <div className="flex flex-col gap-1 mb-3">
         <label htmlFor="username" className="sr-only">
           Username
@@ -24,7 +24,9 @@ const SignupForm = () => {
           className="block appearance-none border border-gray-300 rounded focus:outline-none focus:ring-0 focus:border-gray-300 py-2 px-4 placeholder:text-gray-400"
         />
       </div>
-      {state?.errors?.username && <p>{state.errors.username}</p>}
+      {state?.errors?.username && (
+        <p className="text-red-500">{state.errors.username}</p>
+      )}
 
       <div className="flex flex-col gap-1 mb-3">
         <label htmlFor="email" className="sr-only">
@@ -38,7 +40,9 @@ const SignupForm = () => {
           className="block appearance-none border border-gray-300 rounded focus:outline-none focus:ring-0 focus:border-gray-300 py-2 px-4 placeholder:text-gray-400"
         />
       </div>
-      {state?.errors?.email && <p>{state.errors.email}</p>}
+      {state?.errors?.email && (
+        <p className="text-red-500">{state.errors.email}</p>
+      )}
 
       <div className="flex flex-col gap-1 mb-3">
         <label htmlFor="password" className="sr-only">
@@ -54,10 +58,12 @@ const SignupForm = () => {
       </div>
       {state?.errors?.password && (
         <div>
-          <p>Password must:</p>
+          <p className="text-red-500">Password must:</p>
           <ul>
             {state.errors.password.map((error) => (
-              <li key={error}>- {error}</li>
+              <li className="text-red-500" key={error}>
+                - {error}
+              </li>
             ))}
           </ul>
         </div>
@@ -77,19 +83,28 @@ const SignupForm = () => {
       </div>
       {state?.errors?.password && (
         <div>
-          <p>Password must:</p>
+          <p className="text-red-500">Password must:</p>
           <ul>
             {state.errors.password.map((error) => (
-              <li key={error}>- {error}</li>
+              <li className="text-red-500" key={error}>
+                - {error}
+              </li>
             ))}
           </ul>
         </div>
       )}
-      <button disabled={pending} type="submit">
-        Sign Up
-      </button>
+
+      <div className="mb-3 grid">
+        <button
+          type="submit"
+          disabled={pending}
+          className="bg-blue-500 p-3 text-white rounded-md hover:bg-blue-700"
+        >
+          Sign up
+        </button>
+      </div>
       <div className="flex flex-col justify-start gap-2 border-t border-gray-400 pt-3">
-        <Link href="/login" className="text-blue-500 underline">
+        <Link href="/auth/login" className="text-blue-500 underline">
           have account already? Login
         </Link>
       </div>
