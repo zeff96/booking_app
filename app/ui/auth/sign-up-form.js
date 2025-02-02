@@ -97,7 +97,7 @@ const SignupForm = () => {
       <div className="mb-3 grid">
         <button
           type="submit"
-          disabled={pending}
+          aria-disabled={pending}
           className="bg-blue-500 p-3 text-white rounded-md hover:bg-blue-700"
         >
           Sign up
