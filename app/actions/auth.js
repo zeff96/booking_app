@@ -124,6 +124,7 @@ export const signin = async (state, formData) => {
         token,
         user: { id, role },
       } = data;
+
       await createSession(id, token, role);
     } else {
       return {
