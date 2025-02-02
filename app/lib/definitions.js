@@ -26,3 +26,49 @@ export const SigninFormSchema = SignupFormSchema.pick({
   email: true,
   password: true,
 });
+
+const imageSchema = z
+  .instanceof(File)
+  .refine(
+    (file) =>
+      ["image/jpeg", "image/png", "image/avif", "image/webp"].includes(
+        file.type
+      ),
+    {
+      message: "Invalid file type. Only JPEG, PNG, AVIF, and WEBP are allowed.",
+    }
+  );
+
+export const MotorcycleSchema = z.object({
+  name: z
+    .string()
+    .min(2, { message: "Name must be atleast 2 characters long" })
+    .trim(),
+  bio: z
+    .string()
+    .min(8, "Description must atleast be 8 characters long")
+    .trim(),
+  image: imageSchema,
+  financeFee: z
+    .number()
+    .int()
+    .nonnegative()
+    .refine((val) => Number.isInteger(val), {
+      message: "Must be an integer",
+    }),
+  optionToPurchase: z
+    .number()
+    .int()
+    .nonnegative()
+    .refine((val) => Number.isInteger(val), { message: "Must be an integer" }),
+  totalAmountPayable: z
+    .number()
+    .int()
+    .nonnegative()
+    .refine((val) => Number.isInteger(val), { message: "Must be an integer" }),
+  duration: z
+    .number()
+    .int()
+    .nonnegative()
+    .refine((val) => Number.isInteger(val), { message: "Must be an integer" }),
+});
