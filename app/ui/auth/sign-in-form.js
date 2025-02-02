@@ -56,17 +56,23 @@ const LoginForm = () => {
         </div>
       )}
 
-      <button type="submit" disabled={pending}>
-        Sign in
-      </button>
+      <div className="mb-3 grid">
+        <button
+          type="submit"
+          aria-disabled={pending}
+          className="bg-blue-500 p-3 text-white rounded-md hover:bg-blue-700"
+        >
+          Sign in
+        </button>
+      </div>
 
       {state?.message && <p className="text-red-500">{state.message}</p>}
 
       <div className="flex flex-col justify-start gap-2 border-t border-gray-400 pt-3">
-        <Link href="/reset-password" className="text-blue-500 underline">
+        <Link href="/auth/reset-password" className="text-blue-500 underline">
           Forgot password
         </Link>
-        <Link href="/register" className="text-blue-500 underline">
+        <Link href="/auth/register" className="text-blue-500 underline">
           Don't have account yet? Register
         </Link>
       </div>
