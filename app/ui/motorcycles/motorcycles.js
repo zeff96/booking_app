@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../card/card";
-import { motorcycles } from "@/app/lib/data";
+
 import {
   Carousel,
   CarouselContent,
@@ -18,6 +18,7 @@ import { CiFacebook, CiInstagram } from "react-icons/ci";
 import { TiSocialTwitterCircular } from "react-icons/ti";
 import Image from "next/image";
 import Link from "next/link";
+import getMotorcycles from "@/app/actions/motorcycles/motorcles";
 
 const imageStyle = {
   borderRadius: "50%",
@@ -26,6 +27,7 @@ const imageStyle = {
 };
 
 export async function Motorcycles() {
+  const motorcycles = await getMotorcycles();
   return (
     <Carousel
       opts={{
