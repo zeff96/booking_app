@@ -24,14 +24,16 @@ export const decrypt = async (session) => {
   }
 };
 
-export const createSession = async (userId) => {
+export const createSession = async (userId, token, role) => {
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-  const session = await encrypt({ userId, expiresAt });
+  const session = await encrypt({ userId, token, role, expiresAt });
   const cookieStore = await cookies();
 
   cookieStore.set("session", session, {
     httpOnly: true,
+    secure: true,
     expires: expiresAt,
+    sameSite: "lax",
     path: "/",
   });
 };
