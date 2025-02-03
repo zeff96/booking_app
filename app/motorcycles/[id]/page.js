@@ -17,7 +17,7 @@ export default async function Page({ params }) {
       <div className="w-full h-[300px] xl:h-[600px] xl:basis-2/3">
         <div className="relative w-full h-full">
           <Image
-            src={motorcycle.image}
+            src={motorcycle.image_url}
             alt={motorcycle.name}
             style={{ objectFit: "contain" }}
             fill={true}
