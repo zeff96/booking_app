@@ -45,7 +45,7 @@ export async function Motorcycles() {
               <Card className="py-6 mb-3 flex flex-col items-center">
                 <CardHeader className="relative w-[200px] h-[200px]">
                   <Image
-                    src={item.image}
+                    src={item.image_url}
                     alt={item.name}
                     style={imageStyle}
                     fill={true}
