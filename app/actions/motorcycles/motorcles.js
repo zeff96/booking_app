@@ -2,7 +2,6 @@
 
 import { verifySession } from "@/app/lib/dal";
 import { MotorcycleSchema } from "@/app/lib/definitions";
-import { data } from "autoprefixer";
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -19,9 +18,9 @@ export default async function getMotorcycles() {
       cache: "force-cache",
       next: { tags: ["motorcycles"] },
     });
-    const data = await response.json();
 
     if (response.ok) {
+      const data = await response.json();
       return data;
     }
   } catch (error) {
