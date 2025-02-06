@@ -6,8 +6,7 @@ import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 export default async function getMotorcycles() {
-  const session = await verifySession();
-  const { token } = session;
+  const { token } = await verifySession();
 
   try {
     const response = await fetch("http://127.0.0.1:3000/motorcycles", {
@@ -28,9 +27,30 @@ export default async function getMotorcycles() {
   }
 }
 
+export const getMotorycleWithId = async (itemId) => {
+  const { token } = await verifySession();
+  try {
+    const response = await fetch(
+      `http://127.0.0.1:3000/motorcycles/${itemId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        cache: "force-cache",
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export async function createMotorcycle(state, formData) {
-  const session = await verifySession();
-  const { token } = session;
+  const { token } = await verifySession();
 
   const validatedFields = MotorcycleSchema.safeParse({
     name: formData.get("name"),
@@ -89,3 +109,19 @@ export async function createMotorcycle(state, formData) {
   revalidateTag("motorcycles");
   redirect("/motorcycles");
 }
+
+export const deleteMotorcycle = async (itemId) => {
+  const { token } = await verifySession();
+  try {
+    await fetch(`http://127.0.0.1:3000/motorcycles/${itemId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  } catch (error) {
+    console.log("An unknown error occured. Please try again!");
+  }
+
+  revalidateTag("motorcycles");
+};
