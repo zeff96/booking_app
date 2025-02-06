@@ -1,13 +1,11 @@
 import { verifySession } from "@/app/lib/dal";
-import { user } from "@/app/lib/data";
 import { AddMotorcycleForm } from "@/app/ui/motorcycles/addmotorcycle/add-motorcycle";
 import Link from "next/link";
 
 export default async function Page() {
-  const session = await verifySession();
-  const userRole = session.role;
+  const { role } = await verifySession();
 
-  if (userRole !== "admin") {
+  if (role !== "admin") {
     return (
       <div className="w-full h-screen flex flex-col items-center justify-center">
         <h2 className="text-center font-semibold text-2xl mb-3">
