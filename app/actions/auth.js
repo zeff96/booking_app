@@ -51,8 +51,7 @@ export const signup = async (state, formData) => {
   }
 };
 
-export const verifyAccount = async (state, formData) => {
-  const token = formData.get("token");
+export const verifyAccount = async (token) => {
   const userParams = {
     user: {
       token,
