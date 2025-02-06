@@ -14,15 +14,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { CiFacebook, CiInstagram } from "react-icons/ci";
-import { TiSocialTwitterCircular } from "react-icons/ti";
+import { CiInstagram, CiTwitter } from "react-icons/ci";
+import { RiFacebookLine } from "react-icons/ri";
 import Image from "next/image";
 import Link from "next/link";
 import getMotorcycles from "@/app/actions/motorcycles/motorcles";
 
 const imageStyle = {
-  borderRadius: "50%",
-  border: "1px solid #ccc",
   objectFit: "cover",
 };
 
@@ -42,7 +40,7 @@ export async function Motorcycles() {
             className="pl-1 md:basis-1/2 lg:basis-1/3"
           >
             <div className="p-1">
-              <Card className="py-6 mb-3 flex flex-col items-center">
+              <Card className="py-6 mb-3 flex flex-col items-center border-none">
                 <CardHeader className="relative w-[200px] h-[200px]">
                   <Image
                     src={item.image_url}
@@ -52,10 +50,10 @@ export async function Motorcycles() {
                   />
                 </CardHeader>
                 <CardContent className="text-center">
-                  <CardTitle className="mb-3">
+                  <CardTitle className="mb-12">
                     <Link
                       href={`motorcycles/${item.id}`}
-                      className="hover:opacity-75"
+                      className="hover:opacity-75 border-b-2 border-dashed border-gray-300 pb-6"
                     >
                       {item.name}
                     </Link>
@@ -66,10 +64,16 @@ export async function Motorcycles() {
                       : item.bio}
                   </CardDescription>
                 </CardContent>
-                <CardFooter className="justify-center gap-2">
-                  <CiFacebook />
-                  <TiSocialTwitterCircular />
-                  <CiInstagram />
+                <CardFooter className="justify-center gap-4">
+                  <div className="w-8 h-8 border border-gray-300 rounded-full p-1 flex items-center justify-center cursor-pointer">
+                    <RiFacebookLine className="text-gray-400 text-lg" />
+                  </div>
+                  <div className="w-8 h-8 border border-gray-300 rounded-full p-1 flex items-center justify-center cursor-pointer">
+                    <CiTwitter className="text-gray-400 text-lg" />
+                  </div>
+                  <div className="w-8 h-8 border border-gray-300 rounded-full p-1 flex items-center justify-center cursor-pointer">
+                    <CiInstagram className="text-gray-400 text-lg" />
+                  </div>
                 </CardFooter>
               </Card>
             </div>
