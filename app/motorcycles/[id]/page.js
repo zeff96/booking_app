@@ -1,16 +1,16 @@
-import { motorcycles } from "@/app/lib/data";
+import { getMotorycleWithId } from "@/app/actions/motorcycles/motorcles";
 import { formatCurrency } from "@/app/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
 export async function generateStaticParams() {
-  return motorcycles.map((item) => ({ id: item.id }));
+  return [];
 }
 
 export default async function Page({ params }) {
   const id = (await params).id;
 
-  const motorcycle = motorcycles.find((item) => item.id === id);
+  const motorcycle = await getMotorycleWithId(id);
 
   return (
     <div className="flex flex-col xl:flex-row p-6">
