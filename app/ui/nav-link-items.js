@@ -34,7 +34,7 @@ const items = [
   },
   {
     name: "DELETE MOTORCYCLE",
-    href: "/motorcycles/delete-motorcycle",
+    href: "/motorcycles/deletemotorcycle",
     icon: TrashIcon,
   },
 ];
