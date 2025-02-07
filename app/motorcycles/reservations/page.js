@@ -1,11 +1,12 @@
-import React from "react";
+import { Reservations } from "@/app/ui/motorcycles/reservations/reservations";
 
-const Reservations = () => {
+export default function Page() {
   return (
     <div>
-      <h2>My Reservations</h2>
+      <h2 className="text-xl font-semibold text-center mb-10">
+        My Reservations
+      </h2>
+      <Reservations />
     </div>
   );
-};
-
-export default Reservations;
+}
