@@ -1,10 +1,16 @@
-import { reserveMotorcycle } from "@/app/actions/action";
+"use client";
 
-export function ReserveForm({ userId, motorcycleId, cities, motorcycles }) {
-  const reservationWithUser = reserveMotorcycle.bind(null, userId);
+import { reserveMotorcycle } from "@/app/actions/action";
+import { useActionState } from "react";
+
+export function ReserveForm({ motorcycleId, cities, motorcycles }) {
+  const [state, formAction, pending] = useActionState(
+    reserveMotorcycle,
+    undefined
+  );
 
   return (
-    <form action={reservationWithUser}>
+    <form action={formAction}>
       <div className="mb-3">
         <label htmlFor="motorcycle" className="sr-only">
           motorcycle
@@ -63,12 +69,14 @@ export function ReserveForm({ userId, motorcycleId, cities, motorcycles }) {
       </div>
       <div className="grid">
         <button
+          disabled={pending}
           type="submit"
           className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-700"
         >
           Create Reservation
         </button>
       </div>
+      {state?.error && <p className="text-red-500">{state.error}</p>}
     </form>
   );
 }
