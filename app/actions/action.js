@@ -2,6 +2,7 @@
 
 import { revalidateTag } from "next/cache";
 import { verifySession } from "../lib/dal";
+import { redirect } from "next/navigation";
 
 export const fetchCities = async () => {
   const { token } = await verifySession();
@@ -24,40 +25,70 @@ export const fetchCities = async () => {
   }
 };
 
-export const reserveMotorcycle = async (userId, formData) => {
+export const fetchReservations = async () => {
+  const { token } = await verifySession();
+
+  try {
+    const response = await fetch("http://127.0.0.1:3000/reservations", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      next: { tags: ["reservations"] },
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const reserveMotorcycle = async (state, formData) => {
   const { token } = await verifySession();
 
   //form data
   const date = formData.get("date");
   const city = formData.get("city");
-  const motorcycle = formData.get("motorcycle");
+  const motorcycle_id = formData.get("motorcycle");
 
-  if (!date || !city || !motorcycle) {
+  if (!date || !city || !motorcycle_id) {
     return {
-      errors: "All fields must be field",
+      error: "All fields must be filled",
     };
   }
 
   const reserveData = {
     reservation: {
-      userId,
       date,
       city,
-      motorcycle,
+      motorcycle_id,
     },
   };
 
-  console.log(reserveData);
-
   try {
-    await fetch("", {
+    const response = await fetch("http://127.0.0.1:3000/reservations", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(reserveData),
     });
-  } catch (error) {}
+
+    if (!response.ok) {
+      const data = await response.json();
+      throw new Error(data?.error);
+    }
+  } catch (error) {
+    console.log(error);
+    return {
+      error: error.message,
+    };
+  }
 
   revalidateTag("reservations");
+  redirect("/motorcycles/reservations");
 };
